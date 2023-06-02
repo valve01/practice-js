@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Банковская карта</title>
+
+		<link rel="stylesheet" href="style.css" />
+	</head>
+
+	<body>
+		<div class="card">
+			<div class="card__top">
+				<img src="./images/Bank_logo.svg" alt="Bank_logo" />
+				<img src="./images/Visa.svg" alt="Visa" />
+			</div>
+			<div class="card__middle">
+				<!-- input:number[id=$]*16 дает нам такой вот перечень инпутов с проставленным id по порядку -->
+				<div class="num-block">
+					<input type="text" placeholder="●" maxlength="1" id="1" />
+					<input type="text" placeholder="●" maxlength="1" id="2" />
+					<input type="text" placeholder="●" maxlength="1" id="3" />
+					<input type="text" placeholder="●" maxlength="1" id="4" />
+				</div>
+				<div class="num-block">
+					<input type="text" placeholder="●" maxlength="1" id="5" />
+					<input type="text" placeholder="●" maxlength="1" id="6" />
+					<input type="text" placeholder="●" maxlength="1" id="7" />
+					<input type="text" placeholder="●" maxlength="1" id="8" />
+				</div>
+				<div class="num-block">
+					<input type="text" placeholder="●" maxlength="1" id="9" />
+					<input type="text" placeholder="●" maxlength="1" id="10" />
+					<input type="text" placeholder="●" maxlength="1" id="11" />
+					<input type="text" placeholder="●" maxlength="1" id="12" />
+				</div>
+				<div class="num-block">
+					<input type="text" placeholder="1" maxlength="1" id="13" />
+					<input type="text" placeholder="2" maxlength="1" id="14" />
+					<input type="text" placeholder="3" maxlength="1" id="15" />
+					<input type="text" placeholder="4" maxlength="1" id="16" />
+				</div>
+			</div>
+			<div class="card__bottom">
+				<input type="text" placeholder="card holder" maxlength="21" id="holder" />
+				<div class="date-wrapper">
+					<input type="text" placeholder="MM" maxlength="2" id="month" />
+					<span>/</span>
+					<input type="text" placeholder="YY" maxlength="2" id="year" />
+				</div>
+			</div>
+		</div>
+
+		<script src="main.js"></script>
+	</body>
+</html>

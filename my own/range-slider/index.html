@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Range-slider</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="range-slider-wrapper">
+			<header>
+				<h3>Цена</h3>
+				<p>Выберите ценовой диапазон</p>
+			</header>
+			<div class="price-input">
+				<div class="field">
+					<span>Min</span>
+					<input type="number" class="input-min" value="0" />
+				</div>
+				<div class="separator">-</div>
+				<div class="field">
+					<span>Max</span>
+					<input type="number" class="input-max" value="999999" max="999999" />
+				</div>
+			</div>
+			<div class="slider">
+				<div class="progress">
+
+				</div>
+				<div class="range-input">
+					<input type="range" class="range-input-min" min="0" max="999999" value="0" step="10">
+					<input type="range" class="range-input-max" min="0" max="999999" value="999999" step="10">
+				</div>
+			</div>
+		</div>
+
+		<script src="main.js"></script>
+	</body>
+</html>

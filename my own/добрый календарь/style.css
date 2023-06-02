@@ -1,0 +1,84 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+:root {
+	--dataSize: 50px;
+}
+* {
+	margin: 0;
+	padding: 0;
+	/* Чтобы указанные значения ширины и высоты относились ко всему элементу целиком, не только к контенту */
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+  body {
+	font-family: "Montserrat", sans-serif;
+} 
+.calendar-wrapper {
+	text-transform: uppercase;
+	font-weight: 900;
+}
+.calendar-wrapper h1 {
+	font-size: 20vw;
+	font-weight: 900;
+	line-height: 1em;
+}
+.calendar-description {
+	font-size: 6vw;
+	display: flex;
+	justify-content: space-between;
+}
+.calendar-description h2 {
+	font-weight: 900;
+}
+.year-container {
+}
+.month-wrapper {
+}
+.month-header {
+	color: #281533;
+	font-size: 35px;
+	line-height: 1.2em;
+	margin-top: 30px;
+}
+.month-name {
+	margin-top: 15px;
+	color: #b414ff;
+	font-size: 25px;
+}
+.month-content {
+	display: inline-grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-gap: 2px;
+	margin-top: 15px;
+}
+ .month__date {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: var(--dataSize);
+	height: calc(var(--dataSize)/2) ;
+	color: #83818e;
+	/* border: black 1px solid; */
+}
+.month-accent {
+	color: #e6007e;
+}
+.calendar-header {
+	background: linear-gradient(97.64deg, #ff621f 3.48%, #ac25ff 88.39%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	margin-bottom: -10em;
+}  
+.month-content {
+	width: var(--dataSize);
+	height: calc(var(--dataSize)/2) ;
+	color: #83818e;
+} 
+.months-wrapper {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+}
+.month{
+margin-top: 10em;
+}

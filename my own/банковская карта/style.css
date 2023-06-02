@@ -1,0 +1,96 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+body {
+	font-family: "Poppins", sans-serif;
+	font-weight: 500;
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+}
+* {
+	margin: 0;
+	padding: 0;
+	/* Чтобы указанные значения ширины и высоты относились ко всему элементу целиком, не только к контенту */
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+.card {
+	width: 1010px;
+	border-radius: 38px;
+	height: 638px;
+	padding: 89px 80px 80px 80px;
+	display: flex;
+	flex-direction: column;
+	color: white;
+	/* justify-content: space-between; */
+	/* ? */
+	background: url(./images/bg-purple.svg) center/cover;
+}
+.card__top {
+	display: flex;
+	justify-content: space-between;
+}
+.card__middle {
+	display: flex;
+	justify-content: space-between;
+	margin-top: auto;
+}
+/* Вместо 	/* justify-content: space-between; выше */
+/* Каждому четвертому инпуту добавляем отступ справа */
+/* В таком варианте каждым четырем инпутам не пришлось бы делать дополнительную обертку */
+/* .card__middle input:nth-child(4n):not(:last-child){
+	margin-right: 50px;
+} */
+
+.card__bottom {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 44px;
+}
+.date-wrapper {
+	display: flex;
+	justify-content: end;
+}
+input {
+	/* Убираем обводку при фокусе */
+	outline: none;
+	color: white;
+	background: none;
+	border: none;
+	text-transform: uppercase;
+}
+.card__bottom #holder {
+	font-size: 40px;
+	/* Позволяет блоку растягиваться вширь до следующего */
+	flex-grow: 1;
+}
+.date-wrapper #mounth {
+	text-align: right;
+}
+.date-wrapper input {
+	width: 70px;
+	font-size: 40px;
+	border: none;
+}
+.date-wrapper span {
+	--size: 40px;
+	width: 10px;
+	font-size: var(--size);
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.card__middle input {
+	--size: 50px;
+	width: calc(var(--size) / 1.5);
+	font-size: var(--size);
+	text-align: center;
+}
+
+input::placeholder {
+	color: rgba(255, 255, 255, 0.35);
+}
+.card__middle .num-block {
+	margin: 0;
+	padding: 0;
+}

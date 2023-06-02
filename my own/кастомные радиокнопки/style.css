@@ -1,0 +1,107 @@
+* {
+	margin: 0;
+	padding: 0;
+	/* Чтобы указанные значения ширины и высоты относились ко всему элементу целиком, не только к контенту */
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+body {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	height: 100vh;
+}
+
+.radioBtnsWrapper {
+	height: 15vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.custom-radio {
+	position: relative;
+	display: inline-block;
+	height: 18px;
+	width: 18px;
+	border: #7e9bbd 3px solid;
+	border-radius: 50%;
+	background: white;
+	margin-right: 5px;
+	vertical-align: text-top;
+}
+.real-radio {
+	width: 0;
+	height: 0;
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+}
+
+.custom-radio::before {
+	content: "";
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background: #1647ed;
+	border-radius: 50%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	transition: 0.2s ease-in;
+}
+
+.real-radio:checked + .custom-radio::before {
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.checkboxesWrapper {
+	height: 15vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.real-checkbox {
+	width: 0;
+	height: 0;
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+}
+.custom-checkbox {
+	position: relative;
+	display: inline-block;
+	height: 20px;
+	width: 18px;
+	border: #7e9bbd 3px solid;
+	border-radius: 30%;
+	background: white;
+	margin-right: 5px;
+	vertical-align: text-top;
+}
+.custom-checkbox::before{
+	content: "";
+	display: block;
+	width:15px;
+	height: 15px;
+	background-image: url(./icons8-галочка.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	transition: 0.2s ease-in;
+	margin-left: 1px;
+}
+.real-checkbox:checked + .custom-checkbox::before {
+	transform: translate(-50%, -50%) scale(1);
+}
+.real-checkbox:focus+.custom-checkbox{
+	box-shadow: 0px 0px 5px 1px #1647ed ;
+}
+.real-radio:focus+.custom-radio{
+	box-shadow: 0px 0px 5px 1px #1647ed ;
+}
