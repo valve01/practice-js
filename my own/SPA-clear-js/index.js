@@ -53,9 +53,11 @@ async function handleLocation() {
 	// Создаем переменную для хранения html страницы
 	// fetch это простой GET-запрос, скачивающий содержимое по адресу url. let promise = fetch(url, [options]), и возвращает промис
 	// Далее мы потребляем промис. then((data)=>data.text()) .text() читает data и возвращает как обычный текст. Теперь у нас в const html - html код в виде строки.
-	const html = await fetch(routers[path]).then((data) => data.text());
+	// const html = await fetch(routers[path]).then((data) => data.text());
+	const html = await fetch(routers[path])
+	let text = await html.text()
 	// Добавляем наш html код в виде строки на страницу как обычно при помощи свойства innerHTML
-	document.querySelector(".container").innerHTML = html;
+	document.querySelector(".container").innerHTML = text;
 	console.log(await fetch(routers[path]))
 }
 // Теперь нам нужно вызывать нашу ф-цию handleLocation при клике на ссылку, поэтому вызываем ее в функции route() после добавления новой записи в историю
