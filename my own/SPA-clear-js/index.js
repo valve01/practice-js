@@ -1,16 +1,15 @@
 // Добавляем отслеживание переключения ссылок
-document.addEventListener("click", handler);
-function handler(e) {
+document.addEventListener("click", (e) => {
 	// если элемент, по которому мы кликнули - это ссылка, то вызываем ф-цию route() и передаем в нее атрибут е (event).
 	if (e.target.tagName === "A") {
 		route(e);
 	}
 	// Чтобы браузер не пытался перейти по ссылкам, метод preventDefault() вешаем на все событие
 	e.preventDefault();
-}
+});
 
 // Опишем ф-цию роутинга, она принимает событие e от function handler, которая в свою очередь получила его от document.addEventListener
-const route = (e) => {
+function route(e) {
 	// Обращаемся к объекту window и к его свойству history, и вызываем метод pushState
 	// С помощью History API можно переходить по истории вперёд, назад и управлять содержимым истории. Доступ к API осуществляется с помощью объекта window.history.
 	// Подробнее https://doka.guide/js/window-history/
@@ -30,7 +29,7 @@ const route = (e) => {
 	// Получается мы так создаем новую запись истории сеанса на указанном url. Т.е. виртуально переходим на другую страницу. Хотя остаемся в том же html документе. И благодаря этоту страница не обновляется.
 	window.history.pushState({}, "", e.target.href);
 	handleLocation();
-};
+}
 
 // Создадим теперь html файлы наших страниц
 
@@ -43,7 +42,7 @@ const routers = {
 };
 
 // Создаем асинхронню функцию, которая будет подгружать наши страницы по указанному адресу handleLocation (управление положением)
-async function handleLocation() {
+const handleLocation = async function () {
 	// Создаем переменную для хранения адреса, который мы будем считывать с адресной строки
 	// Интерфейс Location представляет собой адрес (URL) объекта, с которым он связан. Его модификации отражаются на родительском объекте.
 	//Свойство pathname - строка пути (относительно хоста) (например /search) (в виде строки)
@@ -54,16 +53,19 @@ async function handleLocation() {
 	// fetch это простой GET-запрос, скачивающий содержимое по адресу url. let promise = fetch(url, [options]), и возвращает промис
 	// Далее мы потребляем промис. then((data)=>data.text()) .text() читает data и возвращает как обычный текст. Теперь у нас в const html - html код в виде строки.
 	// const html = await fetch(routers[path]).then((data) => data.text());
-	const html = await fetch(routers[path])
-	let text = await html.text()
+	const html = await fetch(routers[path],{
+
+	}).then((data) => data.text());
+	// console.log(routers[path])
+	// let text = await html.text();
 	// Добавляем наш html код в виде строки на страницу как обычно при помощи свойства innerHTML
-	document.querySelector(".container").innerHTML = text;
-	console.log(await fetch(routers[path]))
-}
+	document.querySelector(".container").innerHTML = html;
+	// console.log(html);
+};
 // Теперь нам нужно вызывать нашу ф-цию handleLocation при клике на ссылку, поэтому вызываем ее в функции route() после добавления новой записи в историю
 
 window.onpopstate = handleLocation;
 
 // Заменяем стандартный роутинг объекта window на наш собственный (кастомный)
 window.route = route;
-handleLocation();
+// handleLocation();
