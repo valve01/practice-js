@@ -43,7 +43,7 @@ const routers = {
 };
 
 // Создаем асинхронню функцию, которая будет подгружать наши страницы по указанному адресу handleLocation (управление положением)
- async function handleLocation () {
+async function handleLocation() {
 	// Создаем переменную для хранения адреса, который мы будем считывать с адресной строки
 	// Интерфейс Location представляет собой адрес (URL) объекта, с которым он связан. Его модификации отражаются на родительском объекте.
 	//Свойство pathname - строка пути (относительно хоста) (например /search) (в виде строки)
@@ -56,8 +56,12 @@ const routers = {
 	const html = await fetch(routers[path]).then((data) => data.text());
 	// Добавляем наш html код в виде строки на страницу как обычно при помощи свойства innerHTML
 	document.querySelector(".container").innerHTML = html;
-};
+	console.log(await fetch(routers[path]))
+}
 // Теперь нам нужно вызывать нашу ф-цию handleLocation при клике на ссылку, поэтому вызываем ее в функции route() после добавления новой записи в историю
+
+window.onpopstate = handleLocation;
 
 // Заменяем стандартный роутинг объекта window на наш собственный (кастомный)
 window.route = route;
+handleLocation();
