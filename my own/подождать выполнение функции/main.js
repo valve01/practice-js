@@ -67,3 +67,15 @@ callLis();
 // }
 
 // calcAsync();
+
+// =============================== Еще вариант чисто на промисах =========================================
+// function one() {
+// 	return new Promise(resolve => {
+// 		setTimeout(() => resolve(console.log('hello world 1')), 3000);
+// 	})
+//   }
+//   function two() {
+// 	setTimeout(() => console.log('hello world 2'), 1000);
+//   }
+
+//   one().then(() => two())
